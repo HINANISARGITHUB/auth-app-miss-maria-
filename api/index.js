@@ -6,8 +6,10 @@ const cors = require("cors");
 const app = express();
 
 // ✅ CORS (Frontend URL yahan lazmi dalen jab deploy ho jaye)
-app.use(cors());
-app.use(express.json());
+app.use(cors({origin:"",
+              method:["GET","POST", "PUT", "DELETE"],
+              credentials:true}));
+app.options("*"cors());
 
 // ✅ MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
