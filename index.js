@@ -6,10 +6,8 @@ const cors = require("cors");
 const app = express();
 
 // ✅ CORS (Frontend URL yahan lazmi dalen jab deploy ho jaye)
-app.use(cors({origin:"",
-              method:["GET","POST", "PUT", "DELETE"],
-              credentials:true}));
-app.options("*"cors());
+app.use(cors({
+  origin:"https://auth-app-miss-maria-frontend.vercel.app",methods:["GET,"POST","PUT","DELETE"],credentials:true}));
 
 // ✅ MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
